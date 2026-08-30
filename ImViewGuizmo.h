@@ -31,6 +31,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ======================================================*/
 
+#include <algorithm>
+
 #ifndef IMVIEWGUIZMO_VEC3
     #define IMVIEWGUIZMO_USE_GLM_DEFAULTS
     #ifndef GLM_ENABLE_EXPERIMENTAL
