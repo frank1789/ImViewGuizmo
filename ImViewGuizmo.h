@@ -458,10 +458,14 @@ namespace ImViewGuizmo {
             // Default up is world +Y; pick a fallback when look direction is parallel to it
             vec3_t targetUp = worldUp;
             if (fabsf(GizmoMath::dot(dirNormalized, targetUp)) > 0.999f)
-                if (dirNormalized.y > 0.0f)  // pivot→camera points up → looking down
+                if (dirNormalized.y > 0.0f)  {
+                  // pivot→camera points up → looking down
                     targetUp = worldForward;
-                else  // pivot→camera points down → looking up
+                  }
+                else  {
+                  // pivot→camera points down → looking up
                     targetUp = GizmoMath::multiply_vf(worldForward, -1.f);
+                  }
 
             // targetDir is pivot→camera; negate for -Z-forward look direction
             quat_t targetRotation = GizmoMath::quatLookAt(GizmoMath::multiply_vf(targetDir, -1.f), targetUp);
